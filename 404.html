@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Wellmmart</title>
+    <script>
+      // GitHub Pages deep-link fix: remember the requested path, then load the app.
+      (function () {
+        var l = window.location;
+        sessionStorage.setItem("wellmmart-redirect", l.pathname + l.search + l.hash);
+        var parts = l.pathname.split("/").filter(Boolean);
+        // On project pages the first segment is the repository name.
+        var base = l.hostname.endsWith("github.io") && parts.length ? "/" + parts[0] + "/" : "/";
+        l.replace(l.origin + base);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
